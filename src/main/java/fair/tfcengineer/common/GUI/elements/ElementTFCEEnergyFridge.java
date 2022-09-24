@@ -1,7 +1,7 @@
 package fair.tfcengineer.common.GUI.elements;
 
 import cofh.lib.gui.GuiBase;
-import com.bioxx.tfc.Core.TFC_Core;
+import com.dunk.tfc.Core.TFC_Core;
 import fair.tfcengineer.common.TileEntities.machines.FridgeBaseTE;
 import fair.tfcengineer.common.TileEntities.machines.PoweredMachineTE;
 

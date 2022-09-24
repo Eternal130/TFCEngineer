@@ -1,8 +1,8 @@
 package fair.tfcengineer.common.GUI.elements;
 
 import cofh.lib.gui.GuiBase;
-import com.bioxx.tfc.Core.TFC_Core;
-import com.bioxx.tfc.api.TFC_ItemHeat;
+import com.dunk.tfc.Core.TFC_Core;
+import com.dunk.tfc.api.TFC_ItemHeat;
 
 import java.util.List;
 
