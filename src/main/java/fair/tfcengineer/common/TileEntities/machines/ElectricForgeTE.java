@@ -1,8 +1,8 @@
 package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
-import com.bioxx.tfc.api.HeatIndex;
-import com.bioxx.tfc.api.TFC_ItemHeat;
+import com.dunk.tfc.api.HeatIndex;
+import com.dunk.tfc.api.TFC_ItemHeat;
 import fair.tfcengineer.TFCEConfigs;
 import fair.tfcengineer.common.Network.MachineInteractPacket;
 import net.minecraft.item.ItemStack;
@@ -10,7 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class ElectricForgeTE extends PoweredForgeBaseTE {
 
-    protected int targetTemp;
+    protected int heatingTemp;
 
     public ElectricForgeTE() { // Every tile entity have to have an empty constructor for loading
         this(2);
@@ -18,7 +18,7 @@ public class ElectricForgeTE extends PoweredForgeBaseTE {
 
     public ElectricForgeTE(int frontSide) {
         super(frontSide, new EnergyStorage((int) (4000 * TFCEConfigs.electricForgePowerMod), (int) (40 * TFCEConfigs.electricForgePowerMod)));
-        targetTemp = 1600;
+        heatingTemp = 1600;
     }
 
     public void interact(MachineInteractPacket packet) {
@@ -33,7 +33,7 @@ public class ElectricForgeTE extends PoweredForgeBaseTE {
 
     @Override
     protected boolean canActivate() {
-        return super.canActivate() && targetTemp > 0;
+        return super.canActivate() && heatingTemp > 0;
     }
 
     public int getRunCost(float workAmount) {
@@ -44,41 +44,41 @@ public class ElectricForgeTE extends PoweredForgeBaseTE {
     }
 
     public float getIncreasedTemp(ItemStack itemStack, HeatIndex index, float curTemp) {
-        if (curTemp < targetTemp) {
-            curTemp += TFC_ItemHeat.getTempIncrease(itemStack) * TFCEConfigs.electricForgeHeatRate;
-            if (curTemp > targetTemp) curTemp = targetTemp;
+        if (curTemp < heatingTemp) {
+            curTemp += TFC_ItemHeat.getTempIncrease(itemStack,heatingTemp) * TFCEConfigs.electricForgeHeatRate;
+            if (curTemp > heatingTemp) curTemp = heatingTemp;
         }
 //        if (curTemp > index.meltTemp - 1f) curTemp = index.meltTemp - 1f;
         return curTemp;
     }
 
-    public int getTargetTemperature() {
-        return targetTemp;
+    public int getHeatingTemperature() {
+        return heatingTemp;
     }
 
-    public void setTargetTemperature(int targetTemp) {
-        this.targetTemp = Math.min(Math.max(targetTemp, 0), 2000);
+    public void setHeatingTemperature(int heatingTemp) {
+        this.heatingTemp = Math.min(Math.max(heatingTemp, 0), 2000);
         markDirty();
     }
 
     public void increaseTemperature() {
-        setTargetTemperature(getTargetTemperature() + 50);
+        setHeatingTemperature(getHeatingTemperature() + 50);
     }
 
     public void decreaseTemperature() {
-        setTargetTemperature(getTargetTemperature() - 50);
+        setHeatingTemperature(getHeatingTemperature() - 50);
     }
 
     @Override
     public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
-        targetTemp = nbt.getInteger("targetTemp");
+        heatingTemp = nbt.getInteger("heatingTemp");
     }
 
     @Override
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
-        nbt.setInteger("targetTemp", targetTemp);
+        nbt.setInteger("heatingTemp", heatingTemp);
     }
 
     @Override

@@ -2,10 +2,10 @@ package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.lib.util.helpers.ServerHelper;
-import com.bioxx.tfc.Core.TFC_Core;
-import com.bioxx.tfc.api.HeatIndex;
-import com.bioxx.tfc.api.HeatRegistry;
-import com.bioxx.tfc.api.TFC_ItemHeat;
+import com.dunk.tfc.Core.TFC_Core;
+import com.dunk.tfc.api.HeatIndex;
+import com.dunk.tfc.api.HeatRegistry;
+import com.dunk.tfc.api.TFC_ItemHeat;
 import fair.tfcengineer.TFCEConfigs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -63,12 +63,12 @@ public class FridgeBaseTE extends PoweredMachineTE implements IInventory {
 
                 if (index != null) {
                     float temp = TFC_ItemHeat.getTemp(is);
-                    if (isActive()) TFC_ItemHeat.setTemp(is, temp - TFC_ItemHeat.getTempDecrease(is) * 20f);
+                    if (isActive()) TFC_ItemHeat.setTemp(is, temp - TFC_ItemHeat.getTempDecrease(is,27.0F) * 20f);
                 }
             }
         }
 
-        TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord, getDecayRate());
+        TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord, getDecayRate(), false);
     }
 
     @Override

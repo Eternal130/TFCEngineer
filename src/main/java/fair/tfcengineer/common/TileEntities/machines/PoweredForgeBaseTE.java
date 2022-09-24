@@ -2,15 +2,15 @@ package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.lib.util.helpers.ServerHelper;
-import com.bioxx.tfc.Core.TFC_Core;
-import com.bioxx.tfc.Food.ItemFoodTFC;
-import com.bioxx.tfc.Items.ItemMeltedMetal;
-import com.bioxx.tfc.Items.ItemOre;
-import com.bioxx.tfc.api.HeatIndex;
-import com.bioxx.tfc.api.HeatRegistry;
-import com.bioxx.tfc.api.Interfaces.ISmeltable;
-import com.bioxx.tfc.api.TFCItems;
-import com.bioxx.tfc.api.TFC_ItemHeat;
+import com.dunk.tfc.Core.TFC_Core;
+import com.dunk.tfc.Food.ItemFoodTFC;
+import com.dunk.tfc.Items.ItemMeltedMetal;
+import com.dunk.tfc.Items.ItemOre;
+import com.dunk.tfc.api.HeatIndex;
+import com.dunk.tfc.api.HeatRegistry;
+import com.dunk.tfc.api.Interfaces.ISmeltable;
+import com.dunk.tfc.api.TFCItems;
+import com.dunk.tfc.api.TFC_ItemHeat;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -42,7 +42,7 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
             cookSlot(i, getCeramicMoldStack());
         }
 
-        TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord);
+        TFC_Core.handleItemTicking(this, worldObj, xCoord, yCoord, zCoord, false);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
 
     // Returns the temperature after it has been heated this tick
     public float getIncreasedTemp(ItemStack itemStack, HeatIndex index, float curTemp) {
-        return curTemp;
+    	return curTemp;
     }
 
     public void tickSlot(int slot) {
@@ -67,7 +67,15 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
 
             if (index != null) {
                 float temp = TFC_ItemHeat.getTemp(is);
-                if (isActive()) TFC_ItemHeat.setTemp(is, getIncreasedTemp(is, index, temp));
+                if (isActive())TFC_ItemHeat.setTemp(is, getIncreasedTemp(is, index, temp),true);
+                if (HeatRegistry.getInstance().isTemperatureWorkable(is) || HeatRegistry.getInstance().isTemperatureWeldable(is))
+				{
+					is = TFC_ItemHeat.setHoldTemperature(is);
+				}
+				else
+				{
+					is = TFC_ItemHeat.removeHoldTemperature(is);
+				}
             }
         }
     }
@@ -95,7 +103,7 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
                         ItemStack output = index.getOutput(isCopy, new Random());
                         if (isCopy.getItem() instanceof ISmeltable) {
                             ISmeltable isSmelt = (ISmeltable) isCopy.getItem();
-                            ItemStack meltedItemStack = new ItemStack(isSmelt.getMetalType(isCopy).meltedItem);
+                            ItemStack meltedItemStack = new ItemStack(isSmelt.getMetalType(isCopy).ingot);
                             TFC_ItemHeat.setTemp(meltedItemStack, temp);
                             int units = isSmelt.getMetalReturnAmount(isCopy);
 

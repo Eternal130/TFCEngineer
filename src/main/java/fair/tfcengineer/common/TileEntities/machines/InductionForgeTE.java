@@ -1,8 +1,8 @@
 package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
-import com.bioxx.tfc.api.HeatIndex;
-import com.bioxx.tfc.api.TFC_ItemHeat;
+import com.dunk.tfc.api.HeatIndex;
+import com.dunk.tfc.api.TFC_ItemHeat;
 import fair.tfcengineer.TFCEConfigs;
 import fair.tfcengineer.common.Network.MachineInteractPacket;
 import net.minecraft.item.ItemStack;
@@ -40,11 +40,11 @@ public class InductionForgeTE extends PoweredForgeBaseTE {
 
     public float getIncreasedTemp(ItemStack itemStack, HeatIndex index, float curTemp) {
         if (mode == 0) {
-            curTemp += TFC_ItemHeat.getTempIncrease(itemStack) * TFCEConfigs.inductionForgeHeatRate;
+            curTemp += TFC_ItemHeat.getTempIncrease(itemStack,2000.0F) * TFCEConfigs.inductionForgeHeatRate;
             if (curTemp > index.meltTemp - 1f) curTemp = index.meltTemp - 1f;
         } else if (mode == 1) {
-            curTemp += TFC_ItemHeat.getTempIncrease(itemStack) * TFCEConfigs.inductionForgeHeatRate;
-            if (curTemp > index.meltTemp + 200) curTemp = index.meltTemp + 200;
+            curTemp += TFC_ItemHeat.getTempIncrease(itemStack,2000.0F) * TFCEConfigs.inductionForgeHeatRate;
+            if (curTemp > index.meltTemp + 1) curTemp = index.meltTemp + 1;
         }
         return curTemp;
     }
