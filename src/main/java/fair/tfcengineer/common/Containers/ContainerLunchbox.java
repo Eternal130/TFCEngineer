@@ -1,7 +1,7 @@
 package fair.tfcengineer.common.Containers;
 
-import com.bioxx.tfc.Containers.ContainerTFC;
-import com.bioxx.tfc.Core.Player.PlayerInventory;
+import com.dunk.tfc.Containers.ContainerTFC;
+import com.dunk.tfc.Core.Player.PlayerInventory;
 import fair.tfcengineer.common.Items.InventoryItem;
 import fair.tfcengineer.common.Items.ItemLunchbox;
 import fair.tfcengineer.common.Items.TFCEItems;

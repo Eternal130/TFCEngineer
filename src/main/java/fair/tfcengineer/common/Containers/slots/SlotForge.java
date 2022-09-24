@@ -1,8 +1,8 @@
 package fair.tfcengineer.common.Containers.slots;
 
-import com.bioxx.tfc.Food.ItemFoodTFC;
-import com.bioxx.tfc.Items.ItemOre;
-import com.bioxx.tfc.api.HeatRegistry;
+import com.dunk.tfc.Food.ItemFoodTFC;
+import com.dunk.tfc.Items.ItemOre;
+import com.dunk.tfc.api.HeatRegistry;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
