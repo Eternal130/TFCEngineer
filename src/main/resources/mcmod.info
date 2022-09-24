@@ -2,7 +2,7 @@
 {
   "modid": "tfcengineer",
   "name": "TFC Engineer",
-  "description": "Terra firma craft engineer addon",
+  "description": "Terra firma craft Plus engineer addon",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "http://terrafirmacraft.com/f/topic/9563-tfc-07929-tfc-engineer/",
