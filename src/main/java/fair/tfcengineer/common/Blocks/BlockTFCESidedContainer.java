@@ -1,9 +1,9 @@
 package fair.tfcengineer.common.Blocks;
 
-import com.bioxx.tfc.api.Enums.EnumItemReach;
-import com.bioxx.tfc.api.Enums.EnumSize;
-import com.bioxx.tfc.api.Enums.EnumWeight;
-import com.bioxx.tfc.api.Interfaces.ISize;
+import com.dunk.tfc.api.Enums.EnumItemReach;
+import com.dunk.tfc.api.Enums.EnumSize;
+import com.dunk.tfc.api.Enums.EnumWeight;
+import com.dunk.tfc.api.Interfaces.ISize;
 import fair.tfcengineer.TFCEngineer;
 import fair.tfcengineer.common.TileEntities.interfaces.SidedBlockTE;
 import fair.tfcengineer.common.TileEntities.machines.ElectricForgeTE;
