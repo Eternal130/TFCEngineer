@@ -20,5 +20,5 @@ gui.EnergyUsage=Energy usage:
 gui.DecayRate=Decay rate:
 gui.Induction.Mode1=Mode: Work items
 gui.Induction.Mode2=Mode: Melt items
-gui.ElectricForge.TargetTemp=Target temperature
+gui.ElectricForge.TargetTemp=Heating temperature
 gui.ElectricForge.Off=OFF
