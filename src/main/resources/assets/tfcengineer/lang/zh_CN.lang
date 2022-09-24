@@ -1,0 +1,26 @@
+## 汉化者= 233Isaac(由Eternal130微调)
+
+#== 物品名称
+item.Lunchbox.name=保鲜盒
+item.InsulationCloth.name=保鲜布
+
+
+#== 方块名称
+tile.ElectricForge.name=电动锻造炉
+tile.InductionForge.name=电磁锻造炉
+tile.Fridge.name=冰箱
+tile.DeepFreezer.name=冰柜
+
+
+#== 窗口
+gui.Lunchbox.Help1=§7潜行 §b右键 §7打开。
+gui.Lunchbox.Help2=§7按住 §b右键 §7吃。
+gui.Lunchbox.Part1=包括:
+gui.Lunchbox.Part2=物品:
+
+gui.EnergyUsage=能量使用:
+gui.DecayRate=衰减速度:
+gui.Induction.Mode1=模式:锻造
+gui.Induction.Mode2=模式:融化
+gui.ElectricForge.TargetTemp=加热温度
+gui.ElectricForge.Off=关闭
