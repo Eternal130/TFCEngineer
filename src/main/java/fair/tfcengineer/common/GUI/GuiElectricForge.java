@@ -41,7 +41,7 @@ public class GuiElectricForge extends GuiBase {
         buttonList.add(butTempUp = new ButtonIncrease(0, guiLeft + 42, guiTop + 15));
         buttonList.add(butTempDown = new ButtonDecrease(1, guiLeft + 42, guiTop + 45));
         addElement(energyStored = new ElementTFCEEnergyMachine(this, te, 7, 9));
-        addElement(tempGauge = new ElementTFCETempGauge(this, te.getTargetTemperature(), 28, 12));
+        addElement(tempGauge = new ElementTFCETempGauge(this, te.getHeatingTemperature(), 28, 12));
     }
 
     // Client side code, send a packet to notify server about button presses
@@ -80,12 +80,12 @@ public class GuiElectricForge extends GuiBase {
             }
             curMeta = te.getBlockMetadata();
         }
-        tempGauge.updateTemp(te.getTargetTemperature());
+        tempGauge.updateTemp(te.getHeatingTemperature());
     }
 
     public void updateTileEntity(ElectricForgeTE te) {
         this.te = te;
         energyStored.updateTilEntity(te);
-        tempGauge.updateTemp(te.getTargetTemperature());
+        tempGauge.updateTemp(te.getHeatingTemperature());
     }
 }

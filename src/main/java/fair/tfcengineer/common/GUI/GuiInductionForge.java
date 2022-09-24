@@ -2,7 +2,7 @@ package fair.tfcengineer.common.GUI;
 
 import cofh.lib.gui.GuiBase;
 import cofh.lib.gui.element.ElementSimpleToolTip;
-import com.bioxx.tfc.Core.TFC_Core;
+import com.dunk.tfc.Core.TFC_Core;
 import fair.tfcengineer.TFCEngineer;
 import fair.tfcengineer.common.Containers.ContainerPoweredForge;
 import fair.tfcengineer.common.GUI.buttons.ButtonDecrease;
