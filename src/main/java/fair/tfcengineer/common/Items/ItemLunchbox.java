@@ -1,10 +1,10 @@
 package fair.tfcengineer.common.Items;
 
-import com.bioxx.tfc.Core.Player.FoodStatsTFC;
-import com.bioxx.tfc.Core.TFC_Core;
-import com.bioxx.tfc.Items.ItemTerra;
-import com.bioxx.tfc.api.Enums.EnumSize;
-import com.bioxx.tfc.api.Enums.EnumWeight;
+import com.dunk.tfc.Core.Player.FoodStatsTFC;
+import com.dunk.tfc.Core.TFC_Core;
+import com.dunk.tfc.Items.ItemTerra;
+import com.dunk.tfc.api.Enums.EnumSize;
+import com.dunk.tfc.api.Enums.EnumWeight;
 import fair.tfcengineer.TFCEConfigs;
 import fair.tfcengineer.TFCEngineer;
 import fair.tfcengineer.common.GUI.GuiHandler;

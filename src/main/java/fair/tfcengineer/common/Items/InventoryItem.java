@@ -1,6 +1,6 @@
 package fair.tfcengineer.common.Items;
 
-import com.bioxx.tfc.Core.TFC_Core;
+import com.dunk.tfc.Core.TFC_Core;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.EnumAction;
@@ -26,7 +26,7 @@ public class InventoryItem implements IInventory {
     }
 
     public void tickContent(World world, int x, int y, int z, float decayFactor) {
-        TFC_Core.handleItemTicking(itemStorage, world, x, y, z, decayFactor);
+        TFC_Core.handleItemTicking(itemStorage, world, x, y, z, decayFactor, false, false);
         for (int i = 0; i < getSizeInventory(); i++) {
             if (getStackInSlot(i) != null && getStackInSlot(i).stackSize == 0) {
                 itemStorage[i] = null;
