@@ -4,8 +4,12 @@ import cofh.api.energy.EnergyStorage;
 import cofh.lib.util.helpers.ServerHelper;
 import com.dunk.tfc.Core.TFC_Core;
 import com.dunk.tfc.Food.ItemFoodTFC;
+import com.dunk.tfc.Items.ItemBloom;
 import com.dunk.tfc.Items.ItemMeltedMetal;
 import com.dunk.tfc.Items.ItemOre;
+import com.dunk.tfc.Items.ItemTerra;
+import com.dunk.tfc.Items.Pottery.ItemPotteryMoldBase;
+import com.dunk.tfc.Items.Pottery.ItemPotterySheetMold;
 import com.dunk.tfc.api.HeatIndex;
 import com.dunk.tfc.api.HeatRegistry;
 import com.dunk.tfc.api.Interfaces.ISmeltable;
@@ -97,28 +101,32 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
                         HeatIndex morphIndex = manager.findMatchingIndex(getStackInSlot(slot));
                         if (morphIndex != null) {
                             // Apply old temperature to direct morphs that can continue to be heated.
-                            TFC_ItemHeat.setTemp(getStackInSlot(slot), temp);
+                            TFC_ItemHeat.setTemp(getStackInSlot(slot), temp,true);
                         }
                     } else if (index.hasOutput()) {
                         ItemStack output = index.getOutput(isCopy, new Random());
                         if (isCopy.getItem() instanceof ISmeltable) {
                             ISmeltable isSmelt = (ISmeltable) isCopy.getItem();
-                            ItemStack meltedItemStack = new ItemStack(isSmelt.getMetalType(isCopy).ingot);
-                            TFC_ItemHeat.setTemp(meltedItemStack, temp);
                             int units = isSmelt.getMetalReturnAmount(isCopy);
-
-//                            if (isCopy.getItem() instanceof ItemBloom) units = Math.min(100, units);
+    						if (isCopy.getItem() instanceof ItemBloom)
+    							units = Math.min(100, units);
 
                             while (units > 0 && moldItemStack != null && moldItemStack.stackSize > 0) {
-                                ItemStack outputCopy = meltedItemStack.copy();
+                                ItemStack outputCopy = new ItemStack(
+    									isSmelt.getMetalType(isCopy).getResultFromMold(moldItemStack.getItem()));// meltedItem.copy();
+                                TFC_ItemHeat.setTemp(outputCopy, temp,true);
+    							outputCopy.setItemDamage(
+    									isSmelt.getMetalType(isCopy).getBaseValueForResult(moldItemStack.getItem()));
+    							((ItemPotteryMoldBase) (outputCopy.getItem())).setToMinimumUnits(outputCopy);
+    							((ItemPotteryMoldBase) (outputCopy.getItem())).addUnits(outputCopy,
+    									((ItemPotteryMoldBase) (moldItemStack.getItem())).getUnits(moldItemStack));
 
-                                if (units > 100) { // If there is more than 1 output
+                                while (units > 100) { // If there is more than 1 output
                                     units-= 100;
                                     moldItemStack.stackSize--;
-
                                     fillEmptySlot(outputCopy);
-                                } else if (units > 0) { // Put the last item in the forge cooking slot, replacing the input
-                                    outputCopy.setItemDamage(100 - units);
+                                } if (units > 0) { // Put the last item in the forge cooking slot, replacing the input
+                                	((ItemPotteryMoldBase) (outputCopy.getItem())).addUnits(outputCopy, units);
                                     units = 0;
                                     moldItemStack.stackSize--;
                                     fillEmptySlot(outputCopy.copy());
@@ -137,6 +145,7 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
                 }
             }
         }
+        
     }
 
     // Finds empty slot in forge main inventory and puts item there, or drops the item in front of the forge.
