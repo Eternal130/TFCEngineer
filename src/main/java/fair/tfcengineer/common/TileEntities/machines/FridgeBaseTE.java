@@ -63,7 +63,10 @@ public class FridgeBaseTE extends PoweredMachineTE implements IInventory {
 
                 if (index != null) {
                     float temp = TFC_ItemHeat.getTemp(is);
-                    if (isActive()) TFC_ItemHeat.setTemp(is, temp - TFC_ItemHeat.getTempDecrease(is,0.0F) * 20f);
+                    if (isActive()){
+                        TFC_ItemHeat.setTemp(is, temp - TFC_ItemHeat.getTempDecrease(is,0.0F) * 20f);
+                        if(temp<10) is.getTagCompound().removeTag("temperature");
+                    }
                 }
             }
         }

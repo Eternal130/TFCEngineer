@@ -112,11 +112,9 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
     							units = Math.min(100, units);
 
                             while (units > 0 && moldItemStack != null && moldItemStack.stackSize > 0) {
-                                ItemStack outputCopy = new ItemStack(
-    									isSmelt.getMetalType(isCopy).getResultFromMold(moldItemStack.getItem()));// meltedItem.copy();
+                                ItemStack outputCopy = new ItemStack(isSmelt.getMetalType(isCopy).getResultFromMold(moldItemStack.getItem()));// meltedItem.copy();
                                 TFC_ItemHeat.setTemp(outputCopy, temp,true);
-    							outputCopy.setItemDamage(
-    									isSmelt.getMetalType(isCopy).getBaseValueForResult(moldItemStack.getItem()));
+    							outputCopy.setItemDamage(isSmelt.getMetalType(isCopy).getBaseValueForResult(moldItemStack.getItem()));
     							((ItemPotteryMoldBase) (outputCopy.getItem())).setToMinimumUnits(outputCopy);
     							((ItemPotteryMoldBase) (outputCopy.getItem())).addUnits(outputCopy,
     									((ItemPotteryMoldBase) (moldItemStack.getItem())).getUnits(moldItemStack));
