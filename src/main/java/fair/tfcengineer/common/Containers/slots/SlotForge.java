@@ -18,7 +18,11 @@ public class SlotForge extends Slot {
         HeatRegistry manager = HeatRegistry.getInstance();
         return !(manager.findMatchingIndex(itemstack) == null
                 || itemstack.getItem() instanceof ItemOre
-                || itemstack.getItem() instanceof ItemFoodTFC);
+                || itemstack.getItem() instanceof ItemFoodTFC
+                || itemstack.getItem() instanceof ItemMetalChunk
+                || itemstack.getItem() instanceof ItemPotterySheetMold
+                || itemstack.getItem() instanceof ItemPotterySmallVessel
+                || itemstack.getItem() instanceof ItemAnvil);
     }
 
     @Override
