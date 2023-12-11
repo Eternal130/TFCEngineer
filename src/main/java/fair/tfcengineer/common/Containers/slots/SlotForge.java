@@ -1,7 +1,12 @@
 package fair.tfcengineer.common.Containers.slots;
 
+import com.dunk.tfc.Blocks.Devices.BlockAnvil;
 import com.dunk.tfc.Food.ItemFoodTFC;
+import com.dunk.tfc.Items.ItemBlocks.ItemAnvil;
+import com.dunk.tfc.Items.ItemMetalChunk;
 import com.dunk.tfc.Items.ItemOre;
+import com.dunk.tfc.Items.Pottery.ItemPotterySheetMold;
+import com.dunk.tfc.Items.Pottery.ItemPotterySmallVessel;
 import com.dunk.tfc.api.HeatRegistry;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

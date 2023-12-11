@@ -16,7 +16,7 @@ public class TFCEngineer {
 
     public static final String ModID = "tfcengineer";
     public static final String ModName = "TFC Engineer";
-    public static final String Version = "1.1.3";
+    public static final String Version = "1.1.6";
     public static final String SERVER_PROXY_CLASS = "fair.tfcengineer.CommonProxy";
     public static final String CLIENT_PROXY_CLASS = "fair.tfcengineer.ClientProxy";
 

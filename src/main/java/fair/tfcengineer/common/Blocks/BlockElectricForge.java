@@ -1,5 +1,9 @@
 package fair.tfcengineer.common.Blocks;
 
+import com.dunk.tfc.TileEntities.TEForge;
+import com.dunk.tfc.api.Interfaces.IHeatSource;
+import com.dunk.tfc.api.Interfaces.IHeatSourceTE;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fair.tfcengineer.TFCEngineer;
@@ -22,7 +26,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockElectricForge extends BlockTFCESidedContainer {
+public class BlockElectricForge extends BlockTFCESidedContainer implements IHeatSource {
 
     public BlockElectricForge() {
         super(Material.rock, 2);
@@ -82,5 +86,15 @@ public class BlockElectricForge extends BlockTFCESidedContainer {
     @Override
     public int getRenderType() {
         return TFCEBlocks.poweredForgeRenderId;
+    }
+
+    @Override
+    public float getHeatSourceRadius() {
+        return 5;
+    }
+
+    @Override
+    public Class getTileEntityType() {
+        return ElectricForgeTE.class;
     }
 }

@@ -1,10 +1,15 @@
 package fair.tfcengineer.common.Blocks;
 
+import com.dunk.tfc.TileEntities.TEForge;
+import com.dunk.tfc.api.Interfaces.IHeatSource;
+import com.dunk.tfc.api.Interfaces.IHeatSourceTE;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fair.tfcengineer.TFCEngineer;
 import fair.tfcengineer.common.GUI.GuiHandler;
 import fair.tfcengineer.common.TileEntities.MachineBaseTE;
+import fair.tfcengineer.common.TileEntities.machines.ElectricForgeTE;
 import fair.tfcengineer.common.TileEntities.machines.InductionForgeTE;
 import fair.tfcengineer.common.TileEntities.machines.PoweredForgeBaseTE;
 import net.minecraft.block.Block;
@@ -22,7 +27,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockInductionForge extends BlockTFCESidedContainer {
+public class BlockInductionForge extends BlockTFCESidedContainer implements IHeatSource {
 
     public BlockInductionForge() {
         super(Material.rock, 2);
@@ -82,5 +87,15 @@ public class BlockInductionForge extends BlockTFCESidedContainer {
     @Override
     public int getRenderType() {
         return TFCEBlocks.poweredForgeRenderId;
+    }
+
+    @Override
+    public float getHeatSourceRadius() {
+        return 8;
+    }
+
+    @Override
+    public Class getTileEntityType() {
+        return InductionForgeTE.class;
     }
 }

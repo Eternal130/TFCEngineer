@@ -2,13 +2,14 @@ package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
 import com.dunk.tfc.api.HeatIndex;
+import com.dunk.tfc.api.Interfaces.IHeatSourceTE;
 import com.dunk.tfc.api.TFC_ItemHeat;
 import fair.tfcengineer.TFCEConfigs;
 import fair.tfcengineer.common.Network.MachineInteractPacket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class InductionForgeTE extends PoweredForgeBaseTE {
+public class InductionForgeTE extends PoweredForgeBaseTE implements IHeatSourceTE {
 
     private int mode;
 
@@ -76,5 +77,11 @@ public class InductionForgeTE extends PoweredForgeBaseTE {
     @Override
     public String getInventoryName() {
         return "Induction Forge";
+    }
+
+    @Override
+    public float getHeatSourceTemp() {
+        if(isActive()) return 2000;
+        else return 0;
     }
 }
