@@ -1,4 +1,4 @@
-TFC+ Engineer
+TFCPlus Engineer
 ================================================
 
 This is a minecraft forge mod that adds power machines to TerraFirmaCraftPlus.
