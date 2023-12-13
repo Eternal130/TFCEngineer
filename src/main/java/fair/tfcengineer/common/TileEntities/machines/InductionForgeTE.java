@@ -36,7 +36,8 @@ public class InductionForgeTE extends PoweredForgeBaseTE implements IHeatSourceT
         // The more it is heating, the more power it will take
         // Using a power function with fraction as power so the increase is lower the higher the number
         // With this function, heating 1 item takes 10 RF/t, heating 5 takes ~22 RF/t, heating 9 takes 30 RF/t
-        return (int) (Math.pow(workAmount, 0.5) * 10 * TFCEConfigs.inductionForgePowerMod);
+        // The heatingTemp is 2000, so it takes 2 times more power than the electric forge
+        return (int) (Math.pow(workAmount, 0.5) * 10 * TFCEConfigs.inductionForgePowerMod * 2);
     }
 
     public float getIncreasedTemp(ItemStack itemStack, HeatIndex index, float curTemp) {

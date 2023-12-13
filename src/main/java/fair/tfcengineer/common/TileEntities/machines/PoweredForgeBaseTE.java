@@ -2,6 +2,7 @@ package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.lib.util.helpers.ServerHelper;
+import com.dunk.tfc.Core.TFC_Climate;
 import com.dunk.tfc.Core.TFC_Core;
 import com.dunk.tfc.Food.ItemFoodTFC;
 import com.dunk.tfc.Items.ItemBloom;
@@ -15,6 +16,7 @@ import com.dunk.tfc.api.HeatRegistry;
 import com.dunk.tfc.api.Interfaces.ISmeltable;
 import com.dunk.tfc.api.TFCItems;
 import com.dunk.tfc.api.TFC_ItemHeat;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -70,8 +72,22 @@ public class PoweredForgeBaseTE extends PoweredMachineTE implements IInventory {
             HeatIndex index = manager.findMatchingIndex(is);
 
             if (index != null) {
+//                Minecraft instance = Minecraft.getMinecraft();
+//                EntityPlayer player = instance.thePlayer;
                 float temp = TFC_ItemHeat.getTemp(is);
-                if (isActive())TFC_ItemHeat.setTemp(is, getIncreasedTemp(is, index, temp),true);
+//                if(player != null){
+//                    player.addChatMessage(new net.minecraft.util.ChatComponentText(temp + " " + index.meltTemp));
+//                }
+                if (isActive()) {
+                    TFC_ItemHeat.setTemp(is, getIncreasedTemp(is, index, temp),true);
+                    float ambientTemp = TFC_Climate.getHeightAdjustedTemp(worldObj, xCoord, yCoord, zCoord);
+                    if((Math.abs(TFC_ItemHeat.getTemp(is) - ambientTemp) <= 10)){
+                        TFC_ItemHeat.setTemp(is, ambientTemp+11,true);
+                    }
+//                    if(player != null){
+//                        player.addChatMessage(new net.minecraft.util.ChatComponentText(TFC_ItemHeat.getTemp(is) + " "));
+//                    }
+                }
                 if (HeatRegistry.getInstance().isTemperatureWorkable(is) || HeatRegistry.getInstance().isTemperatureWeldable(is))
 				{
 					is = TFC_ItemHeat.setHoldTemperature(is);

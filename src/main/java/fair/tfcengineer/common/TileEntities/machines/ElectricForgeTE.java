@@ -41,7 +41,8 @@ public class ElectricForgeTE extends PoweredForgeBaseTE implements IHeatSourceTE
         // The more it is heating, the more power it will take
         // Using a power function with fraction as power so the increase is lower the higher the number
         // With this function, heating 1 item takes 5 RF/t, heating 5 takes ~11 RF/t, heating 9 takes 15 RF/t
-        return (int) (Math.pow(workAmount, 0.5) * 5 * TFCEConfigs.electricForgePowerMod);
+        // The heatingTemp is added to the power cost, so it will take more power the higher the temperature
+        return (int) (Math.pow(workAmount, 0.5) * 5 * TFCEConfigs.electricForgePowerMod * (1 + heatingTemp / 2000f));
     }
 
     public float getIncreasedTemp(ItemStack itemStack, HeatIndex index, float curTemp) {
