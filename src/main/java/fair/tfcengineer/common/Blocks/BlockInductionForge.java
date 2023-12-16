@@ -1,5 +1,6 @@
 package fair.tfcengineer.common.Blocks;
 
+import com.dunk.tfc.Core.TFCTabs;
 import com.dunk.tfc.TileEntities.TEForge;
 import com.dunk.tfc.api.Interfaces.IHeatSource;
 import com.dunk.tfc.api.Interfaces.IHeatSourceTE;
@@ -35,6 +36,7 @@ public class BlockInductionForge extends BlockTFCESidedContainer implements IHea
         setHardness(2.0F);
         setResistance(6.0F);
         setStepSound(soundTypeMetal);
+        this.setCreativeTab(TFCTabs.TFC_DEVICES);
 
         float min = 1f / 16f;
         float max = 15f / 16f;

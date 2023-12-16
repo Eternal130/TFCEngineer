@@ -1,6 +1,7 @@
 package fair.tfcengineer.common.Items;
 
 import com.dunk.tfc.Core.Player.FoodStatsTFC;
+import com.dunk.tfc.Core.TFCTabs;
 import com.dunk.tfc.Core.TFC_Core;
 import com.dunk.tfc.Items.ItemTerra;
 import com.dunk.tfc.api.Enums.EnumSize;
@@ -25,6 +26,7 @@ public class ItemLunchbox extends TFCEMatItem {
         stackable = false;
         weight = EnumWeight.MEDIUM;
         size = EnumSize.SMALL;
+        this.setCreativeTab(TFCTabs.TFC_TOOLS);
     }
 
     @Override
