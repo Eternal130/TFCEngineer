@@ -1,13 +1,9 @@
 package fair.tfcengineer.common.Containers;
 
 import com.dunk.tfc.Containers.ContainerTFC;
-import com.dunk.tfc.Core.Player.PlayerInventory;
 import fair.tfcengineer.common.Items.InventoryItem;
-import fair.tfcengineer.common.Items.ItemLunchbox;
 import fair.tfcengineer.common.Items.TFCEItems;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.EnumAction;

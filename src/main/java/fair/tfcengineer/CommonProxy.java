@@ -4,7 +4,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import fair.tfcengineer.common.GUI.GuiHandler;
 import fair.tfcengineer.common.Network.MachineInteractPacket;
-import net.minecraftforge.common.config.Configuration;
 
 public class CommonProxy {
 

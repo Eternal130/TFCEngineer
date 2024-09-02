@@ -1,16 +1,13 @@
 package fair.tfcengineer.common.TileEntities.machines;
 
 import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyReceiver;
+import cofh.api.energy.IEnergyHandler;
 import cofh.lib.util.helpers.ServerHelper;
 import fair.tfcengineer.common.TileEntities.MachineBaseTE;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class PoweredMachineTE extends MachineBaseTE implements IEnergyReceiver {
+public class PoweredMachineTE extends MachineBaseTE implements IEnergyHandler {
 
     protected EnergyStorage energyStorage;
     private int energyUsedLastTick;
@@ -87,6 +84,11 @@ public class PoweredMachineTE extends MachineBaseTE implements IEnergyReceiver {
     @Override
     public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
         return energyStorage.receiveEnergy(maxReceive, simulate);
+    }
+
+    @Override
+    public int extractEnergy(ForgeDirection forgeDirection, int i, boolean b) {
+        return 0;
     }
 
     @Override

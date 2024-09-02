@@ -1,17 +1,12 @@
 package fair.tfcengineer.common.GUI;
 
 import cofh.lib.gui.GuiBase;
-import cofh.lib.gui.element.ElementSimpleToolTip;
 import com.dunk.tfc.Core.TFC_Core;
 import fair.tfcengineer.TFCEngineer;
 import fair.tfcengineer.common.Containers.ContainerPoweredForge;
-import fair.tfcengineer.common.GUI.buttons.ButtonDecrease;
-import fair.tfcengineer.common.GUI.buttons.ButtonIncrease;
 import fair.tfcengineer.common.GUI.elements.ElementTFCEEnergyMachine;
-import fair.tfcengineer.common.GUI.elements.ElementTFCETempGauge;
 import fair.tfcengineer.common.GUI.elements.ElementTooltip;
 import fair.tfcengineer.common.Network.MachineInteractPacket;
-import fair.tfcengineer.common.TileEntities.machines.ElectricForgeTE;
 import fair.tfcengineer.common.TileEntities.machines.InductionForgeTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -19,8 +14,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
-import static fair.tfcengineer.common.GUI.elements.ElementTFCE.ELEMENTS_TEXTURE;
 
 public class GuiInductionForge extends GuiBase {
 

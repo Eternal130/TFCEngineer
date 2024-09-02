@@ -6,7 +6,6 @@ import com.dunk.tfc.Core.TFC_Core;
 import com.dunk.tfc.api.HeatIndex;
 import com.dunk.tfc.api.HeatRegistry;
 import com.dunk.tfc.api.TFC_ItemHeat;
-import fair.tfcengineer.TFCEConfigs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

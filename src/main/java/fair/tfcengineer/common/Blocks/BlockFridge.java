@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import fair.tfcengineer.TFCEngineer;
 import fair.tfcengineer.common.GUI.GuiHandler;
 import fair.tfcengineer.common.TileEntities.machines.FridgeTE;
-import fair.tfcengineer.common.TileEntities.machines.InductionForgeTE;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;

@@ -2,13 +2,9 @@ package fair.tfcengineer.common.GUI;
 
 import cofh.lib.gui.GuiBase;
 import fair.tfcengineer.TFCEngineer;
-import fair.tfcengineer.common.Containers.ContainerFridge;
 import fair.tfcengineer.common.Containers.ContainerLunchbox;
-import fair.tfcengineer.common.GUI.elements.ElementTFCEEnergyFridge;
 import fair.tfcengineer.common.Items.InventoryItem;
-import fair.tfcengineer.common.TileEntities.machines.FridgeBaseTE;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiLunchbox extends GuiBase {

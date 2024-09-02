@@ -3,7 +3,6 @@ package fair.tfcengineer.common.Containers;
 import com.dunk.tfc.Containers.ContainerTFC;
 import fair.tfcengineer.common.TileEntities.machines.FridgeBaseTE;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;

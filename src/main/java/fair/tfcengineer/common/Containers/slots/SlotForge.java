@@ -1,6 +1,5 @@
 package fair.tfcengineer.common.Containers.slots;
 
-import com.dunk.tfc.Blocks.Devices.BlockAnvil;
 import com.dunk.tfc.Food.ItemFoodTFC;
 import com.dunk.tfc.Items.ItemBlocks.ItemAnvil;
 import com.dunk.tfc.Items.ItemMetalChunk;
